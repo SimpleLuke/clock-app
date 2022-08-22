@@ -102,7 +102,7 @@ const Info = () => {
         </div>
         <div className="info__clock">
           <h1>
-            <span className="info__clock__time">{time}</span>
+            <span className="info__clock__time">{time ? time : "12:00"}</span>
             <span className="info__clock__zone">
               {timeData ? timeData!.abbreviation : "BST"}
             </span>

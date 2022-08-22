@@ -18,6 +18,10 @@ const Info = () => {
     const response = await fetch("http://worldtimeapi.org/api/ip");
     const data = await response.json();
 
+    if (response.ok) {
+      console.log("Fetch!");
+    }
+
     const { datetime, client_ip } = data;
     setTimeData(data);
 

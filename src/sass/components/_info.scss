@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  animation: fade-in 1s ease-in;
 }
 
 .info {
@@ -23,6 +24,7 @@
       line-height: 2.8rem;
       letter-spacing: 0.4rem;
       font-weight: 400;
+      text-transform: uppercase;
     }
   }
 

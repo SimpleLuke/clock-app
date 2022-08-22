@@ -16,6 +16,12 @@ ORDER: Base + typography > general layout + grid > page layout > components
 1em = 16px
 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+@keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 *,
 *::after,
 *::before {
@@ -78,7 +84,8 @@ body {
   grid-column: col-start 1 / col-end 12;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end; }
+  align-items: flex-end;
+  animation: fade-in 1s ease-in; }
 
 .info__heading {
   display: flex;
@@ -91,7 +98,8 @@ body {
     font-size: 2rem;
     line-height: 2.8rem;
     letter-spacing: 0.4rem;
-    font-weight: 400; }
+    font-weight: 400;
+    text-transform: uppercase; }
 
 .info__clock {
   margin-bottom: 1.6rem; }

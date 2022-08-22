@@ -1,0 +1,45 @@
+.toggle {
+  display: inline-block;
+  background-color: $color-white;
+
+  width: 14.6rem;
+  height: 5.6rem;
+
+  //   padding: 0.8rem 0.9rem 0.8rem 2.1rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+
+  &:hover &--down {
+    background-color: $color-grey-hover;
+    transition: all 0.3s ease-in;
+  }
+
+  &--text {
+    position: absolute;
+    top: 15px;
+    left: 21px;
+    text-transform: uppercase;
+  }
+
+  &--down {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 4rem;
+    height: 4rem;
+    background-color: $color-grey;
+    border-radius: 50%;
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

@@ -15,7 +15,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 1em = 16px
 */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
 *,
 *::after,
 *::before {
@@ -43,12 +43,18 @@ body {
   background-size: cover;
   background-repeat: no-repeat; }
 
+.container {
+  display: grid;
+  grid-template-rows: 50vh 40vh 10vh;
+  grid-template-columns: [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 6.5rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+  column-gap: 3rem; }
+
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 2.8rem;
-  color: #000; }
+  color: #fff; }
 
 .u-center-text {
   text-align: center !important; }
@@ -67,3 +73,96 @@ body {
 
 .u-margin-top-huge {
   margin-top: 10rem !important; }
+
+.info-container {
+  grid-column: col-start 1 / col-end 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; }
+
+.info__heading {
+  display: flex;
+  margin-bottom: 1.6rem; }
+  .info__heading__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 1.6rem; }
+  .info__heading__h4 {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.4rem;
+    font-weight: 400; }
+
+.info__clock {
+  margin-bottom: 1.6rem; }
+  .info__clock__time {
+    font-size: 20rem;
+    line-height: 20rem;
+    letter-spacing: -0.5rem;
+    font-weight: 700; }
+  .info__clock__zone {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 2.8rem; }
+
+.info__location {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  letter-spacing: 0.48rem;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.quote-container {
+  grid-column: col-start 1 / col-end 6;
+  margin-top: 5.6rem;
+  position: relative; }
+  .quote-container__quote {
+    margin-bottom: 1.3rem; }
+  .quote-container__author {
+    font-weight: 700; }
+  .quote-container__refresh {
+    background-color: transparent;
+    height: 1.7rem;
+    width: 1.7rem;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: -30px; }
+    .quote-container__refresh img {
+      opacity: 0.5; }
+
+.toggle {
+  display: inline-block;
+  background-color: #fff;
+  width: 14.6rem;
+  height: 5.6rem;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer; }
+  .toggle:hover .toggle--down {
+    background-color: #999;
+    transition: all 0.3s ease-in; }
+  .toggle--text {
+    position: absolute;
+    top: 15px;
+    left: 21px;
+    text-transform: uppercase; }
+  .toggle--down {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 4rem;
+    height: 4rem;
+    background-color: #303030;
+    border-radius: 50%; }
+    .toggle--down img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); }

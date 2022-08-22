@@ -1,0 +1,30 @@
+.quote-container {
+  //   background-color: red;
+
+  grid-column: col-start 1 / col-end 6;
+  margin-top: 5.6rem;
+
+  position: relative;
+
+  &__quote {
+    margin-bottom: 1.3rem;
+  }
+
+  &__author {
+    font-weight: 700;
+  }
+
+  &__refresh {
+    background-color: transparent;
+    height: 1.7rem;
+    width: 1.7rem;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    img {
+      opacity: 0.5;
+    }
+  }
+}

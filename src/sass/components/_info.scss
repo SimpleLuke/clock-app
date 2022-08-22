@@ -1,0 +1,51 @@
+.info-container {
+  grid-column: col-start 1 / col-end 12;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.info {
+  //   background-color: blue;
+
+  &__heading {
+    display: flex;
+    margin-bottom: 1.6rem;
+    &__icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 1.6rem;
+    }
+
+    &__h4 {
+      font-size: 2rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.4rem;
+      font-weight: 400;
+    }
+  }
+
+  &__clock {
+    margin-bottom: 1.6rem;
+    &__time {
+      font-size: 20rem;
+      line-height: 20rem;
+      letter-spacing: -0.5rem;
+      font-weight: 700;
+    }
+    &__zone {
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 2.8rem;
+    }
+  }
+
+  &__location {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.48rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

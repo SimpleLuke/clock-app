@@ -38,3 +38,14 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.container {
+  display: grid;
+  grid-template-rows: 50vh 40vh 10vh;
+  grid-template-columns:
+    [sidebar-end full-start] minmax(6rem, 1fr)
+    [center-start] repeat(12, [col-start] minmax(min-content, 6.5rem) [col-end])
+    [center-end] minmax(6rem, 1fr)
+    [full-end];
+  column-gap: 3rem;
+}

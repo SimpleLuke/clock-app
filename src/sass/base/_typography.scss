@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
-  /*font-size: 16px;*/
-  line-height: 1.7;
-  color: $color-grey-dark;
+  font-size: $default-font-size;
+  line-height: 2.8rem;
+  color: $color-black;
 }

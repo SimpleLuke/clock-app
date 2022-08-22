@@ -98,7 +98,9 @@ const Info = () => {
           ) : (
             <img className="info__heading__icon" src={sunIcon} alt="Sun Icon" />
           )}
-          <h4 className="info__heading__h4">GOOD {greeting}, IT’S CURRENTLY</h4>
+          <h4 className="info__heading__h4">
+            GOOD {greeting ? greeting : "AFTERNOON"}, IT’S CURRENTLY
+          </h4>
         </div>
         <div className="info__clock">
           <h1>

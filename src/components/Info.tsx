@@ -19,36 +19,37 @@ const Info = () => {
     const data = await response.json();
 
     if (response.ok) {
-      console.log("Fetch!");
-    }
+      const { datetime, client_ip } = data;
+      setTimeData(data);
 
-    const { datetime, client_ip } = data;
-    setTimeData(data);
+      setIp(client_ip);
 
-    setIp(client_ip);
+      //Clock time
+      const date = new Date(datetime);
+      setTime(
+        date.toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+      );
 
-    //Clock time
-    const date = new Date(datetime);
-    setTime(
-      date.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false,
-      })
-    );
+      //Greetings
 
-    //Greetings
+      const hour = Number(
+        date.toLocaleTimeString("en-US", { hour: "2-digit", hour12: false })
+      );
 
-    const hour = Number(
-      date.toLocaleTimeString("en-US", { hour: "2-digit", hour12: false })
-    );
-
-    if (hour >= 5 && hour < 12) {
-      setGreeting("Morning");
-    } else if (hour >= 12 && hour < 18) {
-      setGreeting("Afternoon");
+      if (hour >= 5 && hour < 12) {
+        setGreeting("Morning");
+      } else if (hour >= 12 && hour < 18) {
+        setGreeting("Afternoon");
+      } else {
+        setGreeting("Evening");
+      }
     } else {
-      setGreeting("Evening");
+      setTime("12:00");
+      setGreeting("Afternoon");
     }
   };
 
@@ -60,13 +61,17 @@ const Info = () => {
     );
     const data = await response.json();
 
-    console.log(data);
+    if (response.ok) {
+      console.log(data);
 
-    const city = data.data.location.city.name;
-    const country = data.data.location.country.name;
+      const city = data.data.location.city.name;
+      const country = data.data.location.country.name;
 
-    console.log(city, country);
-    setLocation({ city, country });
+      console.log(city, country);
+      setLocation({ city, country });
+    } else {
+      setLocation({ city: "London", country: "UK" });
+    }
   };
 
   useEffect(() => {
@@ -98,7 +103,9 @@ const Info = () => {
         <div className="info__clock">
           <h1>
             <span className="info__clock__time">{time}</span>
-            <span className="info__clock__zone">{timeData?.abbreviation}</span>
+            <span className="info__clock__zone">
+              {timeData ? timeData!.abbreviation : "BST"}
+            </span>
           </h1>
         </div>
         <h3 className="info__location">

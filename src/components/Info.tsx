@@ -1,7 +1,42 @@
+import { useEffect, useState, useCallback } from "react";
+
 import sunIcon from "../assets/desktop/icon-sun.svg";
 import downArrow from "../assets/desktop/icon-arrow-down.svg";
 
+import worldTime from "../models/worldtime";
+
 const Info = () => {
+  const [timeData, setTimeData] = useState<worldTime>();
+  const [time, setTime] = useState("");
+
+  const fetchLocalTimeHandler = async () => {
+    const response = await fetch("http://worldtimeapi.org/api/ip");
+    const data = await response.json();
+
+    const { datetime } = data;
+    setTimeData(data);
+
+    const date = new Date(datetime);
+    setTime(
+      date.toLocaleTimeString("en-US", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      })
+    );
+  };
+
+  //   const convertTime = useCallback(() => {
+  //     const date = new Date(timeData!.datetime);
+  //     setTime(
+  //       date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+  //     );
+  //   }, [timeData]);
+
+  useEffect(() => {
+    fetchLocalTimeHandler();
+  }, []);
+
   return (
     <section className="info-container">
       <div className="info">
@@ -11,7 +46,7 @@ const Info = () => {
         </div>
         <div className="info__clock">
           <h1>
-            <span className="info__clock__time">11:37</span>
+            <span className="info__clock__time">{time}</span>
             <span className="info__clock__zone">BST</span>
           </h1>
         </div>

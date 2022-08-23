@@ -114,7 +114,7 @@ const Info: React.FC<{
     }, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [greeting]);
 
   return (
     <CSSTransition in={!isToggled} timeout={600} classNames="expanded--info">

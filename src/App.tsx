@@ -42,6 +42,7 @@ function App() {
         year={0}
         week={0}
         number={0}
+        night={isNight}
         {...expandData}
       />
     </Card>

@@ -1,4 +1,5 @@
 import { CSSTransition } from "react-transition-group";
+import { useEffect } from "react";
 
 const Expand: React.FC<{
   timeZone: string;
@@ -6,7 +7,13 @@ const Expand: React.FC<{
   week: number;
   number: number;
   isToggled: boolean;
-}> = ({ timeZone, year, week, number, isToggled }) => {
+  night: boolean;
+}> = ({ timeZone, year, week, number, isToggled, night }) => {
+  const containerStyle: string = night
+    ? "expand-container expand-container--night"
+    : "expand-container";
+
+  console.log(containerStyle);
   return (
     <CSSTransition
       mountOnEnter
@@ -15,7 +22,7 @@ const Expand: React.FC<{
       timeout={600}
       classNames="expanded--card"
     >
-      <div className="expand-container">
+      <div className={containerStyle}>
         <div className="expand-container--left">
           <div className="expand-container--left--top">
             <h6 className="expand__title">Current Timezone</h6>

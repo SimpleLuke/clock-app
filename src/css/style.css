@@ -239,6 +239,8 @@ body {
   top: 50%;
   display: flex;
   padding: 7.4rem 16.5rem; }
+  .expand-container--night {
+    background-color: #000; }
   .expand-container--left {
     border-right: 1px solid rgba(48, 48, 48, 0.25);
     padding-right: 17.4rem; }

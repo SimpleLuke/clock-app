@@ -8,10 +8,16 @@ import upArrow from "../assets/desktop/icon-arrow-up.svg";
 
 import worldTime from "../models/worldtime";
 
-const Info: React.FC<{ toggle: () => void; isToggled: boolean }> = ({
-  toggle,
-  isToggled,
-}) => {
+const Info: React.FC<{
+  toggle: () => void;
+  isToggled: boolean;
+  expandData: (obj: {
+    timeZone: string;
+    year: number;
+    week: number;
+    number: number;
+  }) => void;
+}> = ({ toggle, isToggled, expandData }) => {
   const [timeData, setTimeData] = useState<worldTime>();
   const [time, setTime] = useState("");
   const [greeting, setGreeting] = useState("");
@@ -25,6 +31,7 @@ const Info: React.FC<{ toggle: () => void; isToggled: boolean }> = ({
 
     if (response.ok) {
       const { datetime, client_ip } = data;
+
       setTimeData(data);
 
       setIp(client_ip);
@@ -52,6 +59,20 @@ const Info: React.FC<{ toggle: () => void; isToggled: boolean }> = ({
       } else {
         setGreeting("Evening");
       }
+
+      //Expand card detail
+      const expandInfo: {
+        timeZone: string;
+        year: number;
+        week: number;
+        number: number;
+      } = {
+        timeZone: data.timezone,
+        year: data.day_of_year,
+        week: data.day_of_week,
+        number: data.week_number,
+      };
+      expandData(expandInfo);
     } else {
       setTime("12:00");
       setGreeting("Afternoon");

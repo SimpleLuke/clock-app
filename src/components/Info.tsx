@@ -103,7 +103,7 @@ const Info: React.FC<{
 
   useEffect(() => {
     fetchLocalTimeHandler();
-    // fetchLocation();
+    fetchLocation();
 
     if (greeting === "Evening") {
       nightMode();

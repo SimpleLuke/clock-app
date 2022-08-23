@@ -47,4 +47,8 @@
   font-weight: 700;
   line-height: 6.8rem;
   color: $color-grey;
+
+  &--night {
+    color: $color-white;
+  }
 }

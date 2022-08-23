@@ -22,6 +22,45 @@ ORDER: Base + typography > general layout + grid > page layout > components
   100% {
     opacity: 1; } }
 
+.fade-enter {
+  opacity: 0; }
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s; }
+
+.fade-exit {
+  opacity: 1; }
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.expanded--quote-enter {
+  opacity: 0; }
+
+.expanded--quote-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s 0.2s; }
+
+.expanded--quote-exit {
+  opacity: 1; }
+
+.expanded--quote-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s; }
+
+.expanded--info-enter {
+  transform: translateY(-100%); }
+
+.expanded--info-enter-active {
+  transform: translateY(0%);
+  transition: transform 0.5s ease-in-out; }
+
+.expanded--info-exit-active {
+  transform: translateY(-100%);
+  transition: transform 0.6s ease-in-out; }
+
 *,
 *::after,
 *::before {
@@ -45,9 +84,10 @@ html {
 body {
   height: 100vh;
   overflow: hidden;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../assets/desktop/bg-image-daytime.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url(../assets/desktop/bg-image-daytime.jpg);
   background-size: cover;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  background-attachment: fixed; }
 
 .container {
   display: grid;
@@ -139,20 +179,6 @@ body {
     right: -30px; }
     .quote-container__refresh img {
       opacity: 0.5; }
-
-.fade-enter {
-  opacity: 0; }
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 1s; }
-
-.fade-exit {
-  opacity: 1; }
-
-.fade-exit-active {
-  opacity: 0;
-  transition: opacity 0.5s; }
 
 .toggle {
   display: inline-block;

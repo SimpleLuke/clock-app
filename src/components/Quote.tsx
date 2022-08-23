@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import refreshIcon from "../assets/desktop/icon-refresh.svg";
 import CSSTransition from "react-transition-group/CSSTransition";
 
-const Quote = () => {
+const Quote: React.FC<{ isToggled: boolean }> = ({ isToggled }) => {
   const [quote, setQuote] = useState<{
     id: string;
     author: string;
@@ -26,18 +26,29 @@ const Quote = () => {
   }, [fetchQuoteHandler]);
 
   return (
-    <div className="quote-container">
-      <CSSTransition in={isAnimated} timeout={2000} classNames="fade">
-        <div>
-          <p className="quote-container__quote">{quote.en}</p>
-          <p className="quote-container__author">{quote.author}</p>
-        </div>
-      </CSSTransition>
+    <CSSTransition
+      mountOnEnter
+      unmountOnExit
+      in={!isToggled}
+      timeout={600}
+      classNames="expanded--quote"
+    >
+      <div className="quote-container">
+        <CSSTransition in={isAnimated} timeout={2000} classNames="fade">
+          <div>
+            <p className="quote-container__quote">{quote.en}</p>
+            <p className="quote-container__author">{quote.author}</p>
+          </div>
+        </CSSTransition>
 
-      <button onClick={fetchQuoteHandler} className="quote-container__refresh">
-        <img src={refreshIcon} alt="Refresh Icon" />
-      </button>
-    </div>
+        <button
+          onClick={fetchQuoteHandler}
+          className="quote-container__refresh"
+        >
+          <img src={refreshIcon} alt="Refresh Icon" />
+        </button>
+      </div>
+    </CSSTransition>
   );
 };
 

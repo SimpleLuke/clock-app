@@ -17,7 +17,8 @@ const Info: React.FC<{
     week: number;
     number: number;
   }) => void;
-}> = ({ toggle, isToggled, expandData }) => {
+  nightMode: () => void;
+}> = ({ toggle, isToggled, expandData, nightMode }) => {
   const [timeData, setTimeData] = useState<worldTime>();
   const [time, setTime] = useState("");
   const [greeting, setGreeting] = useState("");
@@ -103,6 +104,10 @@ const Info: React.FC<{
   useEffect(() => {
     fetchLocalTimeHandler();
     fetchLocation();
+
+    if (greeting === "Evening") {
+      nightMode();
+    }
 
     const interval = setInterval(() => {
       fetchLocalTimeHandler();

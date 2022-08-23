@@ -9,6 +9,7 @@ import Expand from "./components/Expand";
 function App() {
   const [isToggled, setIsToggled] = useState<boolean>(false);
   const [expandData, setExpandData] = useState<{}>();
+  const [isNight, setIsNight] = useState(false);
 
   const expandCardDetail = (obj: {
     timeZone: string;
@@ -22,13 +23,18 @@ function App() {
   const toggleHandler = () => {
     setIsToggled((prev) => !prev);
   };
+
+  const nightMode = () => {
+    setIsNight(true);
+  };
   return (
-    <Card>
+    <Card isNight={isNight}>
       <Quote isToggled={isToggled} />
       <Info
         expandData={expandCardDetail}
         toggle={toggleHandler}
         isToggled={isToggled}
+        nightMode={nightMode}
       />
       <Expand
         isToggled={isToggled}

@@ -102,7 +102,7 @@ const Info: React.FC<{
 
   useEffect(() => {
     fetchLocalTimeHandler();
-    // fetchLocation();
+    fetchLocation();
 
     const interval = setInterval(() => {
       fetchLocalTimeHandler();

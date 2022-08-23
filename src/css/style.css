@@ -258,6 +258,8 @@ body {
   letter-spacing: 3px;
   color: #303030;
   text-transform: uppercase; }
+  .expand__title--night {
+    color: #fff; }
 
 .expand__content {
   font-size: 5.6rem;

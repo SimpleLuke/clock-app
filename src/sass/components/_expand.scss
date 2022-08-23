@@ -36,6 +36,10 @@
   letter-spacing: 3px;
   color: $color-grey;
   text-transform: uppercase;
+
+  &--night {
+    color: $color-white;
+  }
 }
 
 .expand__content {

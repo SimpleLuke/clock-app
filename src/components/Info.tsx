@@ -76,7 +76,7 @@ const Info = () => {
 
   useEffect(() => {
     fetchLocalTimeHandler();
-    fetchLocation();
+    // fetchLocation();
 
     const interval = setInterval(() => {
       fetchLocalTimeHandler();

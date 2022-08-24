@@ -26,6 +26,8 @@
 .info {
   //   background-color: blue;
 
+  margin-bottom: 48px;
+
   &__heading {
     display: flex;
     margin-bottom: 1.6rem;
@@ -41,6 +43,12 @@
       letter-spacing: 0.4rem;
       font-weight: 400;
       text-transform: uppercase;
+
+      &--text {
+        @include respond(phone) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -51,11 +59,21 @@
       line-height: 20rem;
       letter-spacing: -0.5rem;
       font-weight: 700;
+
+      @include respond(phone) {
+        font-size: 100px;
+        line-height: 100px;
+        letter-spacing: 2.5px;
+      }
     }
     &__zone {
       font-size: 4rem;
       font-weight: 300;
       line-height: 2.8rem;
+      @include respond(phone) {
+        font-size: 15px;
+        line-height: 28px;
+      }
     }
   }
 

@@ -135,7 +135,8 @@ const Info: React.FC<{
               />
             )}
             <h4 className="info__heading__h4">
-              GOOD {greeting ? greeting : "AFTERNOON"}, IT’S CURRENTLY
+              GOOD {greeting ? greeting : "AFTERNOON"},
+              <span className="info__heading__h4--text"> IT’S CURRENTLY</span>
             </h4>
           </div>
           <div className="info__clock">
@@ -154,8 +155,20 @@ const Info: React.FC<{
         <button onClick={toggle} className="toggle">
           <span className="toggle--text">{isToggled ? "Less" : "More"}</span>
           <span className="toggle--down">
-            {!isToggled && <img src={downArrow} alt="Down arrow" />}
-            {isToggled && <img src={upArrow} alt="Up arrow" />}
+            {!isToggled && (
+              <img
+                className="toggle--down--img"
+                src={downArrow}
+                alt="Down arrow"
+              />
+            )}
+            {isToggled && (
+              <img
+                className="toggle--down--img--up"
+                src={upArrow}
+                alt="Up arrow"
+              />
+            )}
           </span>
         </button>
       </section>

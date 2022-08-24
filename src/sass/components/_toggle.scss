@@ -20,6 +20,10 @@
     top: 80%;
   }
 
+  @include respond(phone) {
+    display: flex;
+  }
+
   &:hover &--down {
     background-color: $color-grey-hover;
     transition: all 0.3s ease-in;
@@ -42,17 +46,22 @@
     right: 0.9rem;
     width: 4rem;
     height: 4rem;
+
     background-color: $color-grey;
     border-radius: 50%;
-    // @include respond(tab-port) {
-    //   top: 7px;
-    // left: 9px;
-    // }
-    img {
+
+    &--img {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+    @include respond(tab-port) {
+      &--img--up {
+        width: 32px;
+        height: 32px;
+        transform: translate(-3px, -3px);
+      }
     }
   }
 }

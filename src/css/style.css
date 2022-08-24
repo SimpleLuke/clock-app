@@ -97,6 +97,9 @@ html {
   @media only screen and (max-width: 56.25em) {
     html {
       font-size: 50%; } }
+  @media only screen and (max-width: 37.5em) {
+    html {
+      font-size: 40%; } }
   @media only screen and (min-width: 112.5em) {
     html {
       font-size: 75%; } }
@@ -121,6 +124,10 @@ body {
       grid-template-columns: [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 4.8rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
       grid-template-rows: minmax(35rem, 45vh) 45vh 10vh;
       column-gap: 1rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .container {
+      grid-template-columns: [sidebar-end full-start] minmax(1.5rem, 1fr) [center-start] repeat(12, [col-start] minmax(min-content, 1rem) [col-end]) [center-end] minmax(1.5rem, 1fr) [full-end];
+      background-image: none; } }
   .container--night {
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 100%), url(../assets/desktop/bg-image-nighttime.jpg); }
 
@@ -166,38 +173,50 @@ body {
       align-items: flex-start;
       position: relative; } }
 
-.info__heading {
-  display: flex;
-  margin-bottom: 1.6rem; }
-  .info__heading__icon {
-    width: 2.4rem;
-    height: 2.4rem;
-    margin-right: 1.6rem; }
-  .info__heading__h4 {
-    font-size: 2rem;
+.info {
+  margin-bottom: 48px; }
+  .info__heading {
+    display: flex;
+    margin-bottom: 1.6rem; }
+    .info__heading__icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-right: 1.6rem; }
+    .info__heading__h4 {
+      font-size: 2rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.4rem;
+      font-weight: 400;
+      text-transform: uppercase; }
+      @media only screen and (max-width: 37.5em) {
+        .info__heading__h4--text {
+          display: none; } }
+  .info__clock {
+    margin-bottom: 1.6rem; }
+    .info__clock__time {
+      font-size: 20rem;
+      line-height: 20rem;
+      letter-spacing: -0.5rem;
+      font-weight: 700; }
+      @media only screen and (max-width: 37.5em) {
+        .info__clock__time {
+          font-size: 100px;
+          line-height: 100px;
+          letter-spacing: 2.5px; } }
+    .info__clock__zone {
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 2.8rem; }
+      @media only screen and (max-width: 37.5em) {
+        .info__clock__zone {
+          font-size: 15px;
+          line-height: 28px; } }
+  .info__location {
+    font-size: 2.4rem;
     line-height: 2.8rem;
-    letter-spacing: 0.4rem;
-    font-weight: 400;
+    letter-spacing: 0.48rem;
+    font-weight: 700;
     text-transform: uppercase; }
-
-.info__clock {
-  margin-bottom: 1.6rem; }
-  .info__clock__time {
-    font-size: 20rem;
-    line-height: 20rem;
-    letter-spacing: -0.5rem;
-    font-weight: 700; }
-  .info__clock__zone {
-    font-size: 4rem;
-    font-weight: 300;
-    line-height: 2.8rem; }
-
-.info__location {
-  font-size: 2.4rem;
-  line-height: 2.8rem;
-  letter-spacing: 0.48rem;
-  font-weight: 700;
-  text-transform: uppercase; }
 
 .quote-container {
   grid-column: col-start 1 / col-end 6;
@@ -206,6 +225,9 @@ body {
   @media only screen and (max-width: 56.25em) {
     .quote-container {
       grid-column: col-start 1 / col-end 10; } }
+  @media only screen and (max-width: 37.5em) {
+    .quote-container {
+      margin-bottom: 22.6rem; } }
   .quote-container__quote {
     margin-bottom: 1.3rem; }
   .quote-container__author {
@@ -217,8 +239,12 @@ body {
     border: none;
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: -30px; }
+    top: 1rem;
+    right: -3rem; }
+    @media only screen and (max-width: 37.5em) {
+      .quote-container__refresh {
+        top: -2rem;
+        right: 0rem; } }
     .quote-container__refresh img {
       opacity: 0.5; }
 
@@ -239,6 +265,9 @@ body {
     .toggle {
       position: absolute;
       top: 80%; } }
+  @media only screen and (max-width: 37.5em) {
+    .toggle {
+      display: flex; } }
   .toggle:hover .toggle--down {
     background-color: #999;
     transition: all 0.3s ease-in; }
@@ -255,11 +284,16 @@ body {
     height: 4rem;
     background-color: #303030;
     border-radius: 50%; }
-    .toggle--down img {
+    .toggle--down--img {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%); }
+    @media only screen and (max-width: 56.25em) {
+      .toggle--down--img--up {
+        width: 32px;
+        height: 32px;
+        transform: translate(-3px, -3px); } }
 
 .expand-container {
   width: 100%;
@@ -273,6 +307,11 @@ body {
   @media only screen and (max-width: 56.25em) {
     .expand-container {
       padding: 16rem 0rem 0rem 6.4rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .expand-container {
+      flex-direction: column;
+      margin: auto;
+      padding: auto; } }
   .expand-container--night {
     background-color: #000; }
   .expand-container--left {
@@ -282,15 +321,27 @@ body {
       .expand-container--left {
         padding-right: 8rem;
         border-right: 0px solid transparent; } }
+    @media only screen and (max-width: 37.5em) {
+      .expand-container--left {
+        padding: 0; } }
     .expand-container--left--top {
       margin-bottom: 4.2rem; }
+      @media only screen and (max-width: 37.5em) {
+        .expand-container--left--top {
+          margin-bottom: 0; } }
   .expand-container--right {
     padding-left: 9.4rem; }
     @media only screen and (max-width: 56.25em) {
       .expand-container--right {
         padding-left: 0; } }
+    @media only screen and (max-width: 37.5em) {
+      .expand-container--right {
+        padding: 0; } }
     .expand-container--right--top {
       margin-bottom: 4.2rem; }
+      @media only screen and (max-width: 37.5em) {
+        .expand-container--right--top {
+          margin-bottom: 0; } }
 
 .expand__title {
   font-size: 1.5rem;

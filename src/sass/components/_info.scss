@@ -1,9 +1,23 @@
 .info-container {
   grid-column: col-start 1 / col-end 12;
+  @include respond(tab-port) {
+    grid-column: col-start 1 / col-end 9;
+  }
 
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    // height: 52rem;
+
+    // padding-bottom: 0;
+
+    position: relative;
+  }
   animation: fade-in 1s ease-in;
 
   padding-bottom: 5.6rem;

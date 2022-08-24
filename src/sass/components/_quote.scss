@@ -4,6 +4,10 @@
   grid-column: col-start 1 / col-end 6;
   margin-top: 5.6rem;
 
+  @include respond(tab-port) {
+    grid-column: col-start 1 / col-end 10;
+  }
+
   position: relative;
 
   &__quote {

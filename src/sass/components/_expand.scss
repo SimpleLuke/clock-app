@@ -9,6 +9,10 @@
 
   padding: 7.4rem 16.5rem;
 
+  @include respond(tab-port) {
+    padding: 16rem 0rem 0rem 6.4rem;
+  }
+
   &--night {
     background-color: $color-black;
   }
@@ -16,6 +20,11 @@
   &--left {
     border-right: 1px solid rgba($color-grey, 0.25);
     padding-right: 17.4rem;
+
+    @include respond(tab-port) {
+      padding-right: 8rem;
+      border-right: 0px solid transparent;
+    }
     &--top {
       margin-bottom: 4.2rem;
     }
@@ -23,6 +32,9 @@
 
   &--right {
     padding-left: 9.4rem;
+    @include respond(tab-port) {
+      padding-left: 0;
+    }
     &--top {
       margin-bottom: 4.2rem;
     }

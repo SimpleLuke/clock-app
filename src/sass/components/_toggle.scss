@@ -15,6 +15,11 @@
   position: relative;
   cursor: pointer;
 
+  @include respond(tab-port) {
+    position: absolute;
+    top: 80%;
+  }
+
   &:hover &--down {
     background-color: $color-grey-hover;
     transition: all 0.3s ease-in;
@@ -22,19 +27,27 @@
 
   &--text {
     position: absolute;
-    top: 15px;
-    left: 21px;
+    top: 1.5rem;
+    left: 2.1rem;
     text-transform: uppercase;
+    // @include respond(tab-port) {
+    //   top: 12px;
+    // left: 18px;
+    // }
   }
 
   &--down {
     position: absolute;
-    top: 8px;
-    right: 9px;
+    top: 0.8rem;
+    right: 0.9rem;
     width: 4rem;
     height: 4rem;
     background-color: $color-grey;
     border-radius: 50%;
+    // @include respond(tab-port) {
+    //   top: 7px;
+    // left: 9px;
+    // }
     img {
       position: absolute;
       top: 50%;
